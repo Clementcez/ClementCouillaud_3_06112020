@@ -3,6 +3,30 @@ $colorPrimary: #9356DC;
 $colorSecondary: #FF79DA;
 $colorThirdly: #99E2D0;
 
-h1 {
-    color: beige;
+@mixin flexCenter-Xy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    margin: unset;
+}
+
+.header{
+    height: 4em;
+    @include flexCenter-Xy();
+    & > img{
+        width: 50%;
+    }
+}
+
+.locali{
+    @include flexCenter-Xy();
+    height: 3em;
+    box-shadow: 0px 18px 9px -19px grey inset;
+    background-color: rgb(224, 224, 224);
+    & > p{
+        margin: 1em;
+    }
 }
