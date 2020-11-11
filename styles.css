@@ -1,5 +1,16 @@
 body {
   margin: unset;
+  font-family: 'Shirkhand', 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Shrikhand', cursive;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  color: unset;
 }
 
 .header {
@@ -19,7 +30,7 @@ body {
   width: 50%;
 }
 
-.locali {
+.headLoc {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,7 +46,58 @@ body {
   background-color: #e0e0e0;
 }
 
-.locali > p {
+.headLoc > p {
   margin: 1em;
+  font-weight: bold;
+}
+
+.headTitleButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  height: 16em;
+  background-color: whitesmoke;
+}
+
+.headTitleButton__title {
+  width: 95%;
+}
+
+.headTitleButton__title--title {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 1em;
+}
+
+.headTitleButton__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1em;
+  height: 3em;
+  width: 65%;
+  border-radius: 1.5em;
+  -webkit-box-shadow: 0px 3px 20px -10px #000000;
+          box-shadow: 0px 3px 20px -10px #000000;
+  color: white;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
+  background: linear-gradient(#FF79DA, #9356DC);
 }
 /*# sourceMappingURL=styles.css.map */

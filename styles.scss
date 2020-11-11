@@ -3,15 +3,51 @@ $colorPrimary: #9356DC;
 $colorSecondary: #FF79DA;
 $colorThirdly: #99E2D0;
 
-@mixin flexCenter-Xy {
+@function eclair($eclair) {
+    $hue: hue($eclair);
+    $saturation: 0%;
+    $light: 96%;
+    $eclair: hsl($hue, $saturation, $light);
+    @return $eclair;
+}
+
+@mixin flexCenter-Xy ($alignItems: center, $justifyContent: center) {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+}
+
+@mixin fontTitle {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 1em;
+}
+
+@mixin headButton {
+    @include flexCenter-Xy ();
+    margin-top: 1em;
+    height: 3em;
+    width: 65%;
+    border-radius: 1.5em;
+    box-shadow: 0px 3px 20px -10px #000000;
+    color: white;
+    background: linear-gradient( $colorSecondary, $colorPrimary);
 }
 
 body{
     margin: unset;
+    font-family: 'Shirkhand', 'Roboto', sans-serif;
 }
+
+h1{
+    font-family: 'Shrikhand', cursive;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: unset;
+  }
 
 .header{
     height: 4em;
@@ -21,12 +57,30 @@ body{
     }
 }
 
-.locali{
+.headLoc{
     @include flexCenter-Xy();
     height: 3em;
     box-shadow: 0px 18px 9px -19px grey inset;
     background-color: rgb(224, 224, 224);
     & > p{
         margin: 1em;
+        font-weight: bold;
+    }
+}
+
+.headTitleButton{
+    @include flexCenter-Xy( $justifyContent: unset);
+    flex-direction: column;
+    text-align: center;
+    height: 16em;
+    background-color: eclair($eclair: grey);
+    &__title{
+        width: 95%;
+        &--title{
+            @include fontTitle();
+        }
+    }
+    &__button{
+        @include headButton();
     }
 }
