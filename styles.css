@@ -7,6 +7,16 @@ h1 {
   font-family: 'Shrikhand', cursive;
 }
 
+h2 {
+  font-weight: bold;
+  font-size: 1.4em;
+  margin: 1.5em 0.8em 0.5em 0.8em;
+}
+
+p {
+  font-size: 0.9em;
+}
+
 a {
   outline: none;
   text-decoration: none;
@@ -66,18 +76,18 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  height: 16em;
-  background-color: whitesmoke;
+  height: 17em;
+  background-color: #f5f4f6;
 }
 
 .headTitleButton__title {
-  width: 95%;
+  width: 90%;
 }
 
 .headTitleButton__title--title {
   font-weight: bold;
-  font-size: 1.5em;
-  margin: 1em;
+  font-size: 1.4em;
+  margin: 1.5em 0.8em 0.5em 0.8em;
 }
 
 .headTitleButton__button {
@@ -90,14 +100,78 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-shadow: 0px 3px 16px -10px #000000;
+          box-shadow: 0px 3px 16px -10px #000000;
   margin-top: 1em;
   height: 3em;
   width: 65%;
   border-radius: 1.5em;
-  -webkit-box-shadow: 0px 3px 20px -10px #000000;
-          box-shadow: 0px 3px 20px -10px #000000;
   color: white;
   background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
+}
+
+.foncStep {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 15em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.foncStep__exemple {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -webkit-box-shadow: 0px 3px 16px -10px #000000;
+          box-shadow: 0px 3px 16px -10px #000000;
+  background-color: #f5f4f6;
+  height: 4em;
+  width: 90%;
+  border-radius: 1em;
+}
+
+.foncStep__exemple > span {
+  position: relative;
+  right: 0.7em;
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 0.7em;
+  background-color: #9356DC;
+  text-align: center;
+  color: white;
+  font-size: smaller;
+}
+
+.foncStep__exemple > i {
+  color: #7e738c;
+  margin: 0 1.2em 0 0.5em;
+}
+
+.foncStep__exemple > p {
+  font-weight: bold;
+}
+
+.foncStep__exemple--mod {
+  background-color: #f4ebff;
+}
+
+.foncStep__exemple--mod > i {
+  color: #9356DC;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -3,11 +3,11 @@ $colorPrimary: #9356DC;
 $colorSecondary: #FF79DA;
 $colorThirdly: #99E2D0;
 
-@function eclair($eclair) {
+@function eclair($eclair, $saturation: 10%, $lightness: 96%) {
     $hue: hue($eclair);
-    $saturation: 0%;
-    $light: 96%;
-    $eclair: hsl($hue, $saturation, $light);
+    $sat: $saturation;
+    $light: $lightness;
+    $eclair: hsl($hue, $sat, $light);
     @return $eclair;
 }
 
@@ -19,17 +19,21 @@ $colorThirdly: #99E2D0;
 
 @mixin fontTitle {
     font-weight: bold;
-    font-size: 1.5em;
-    margin: 1em;
+    font-size: 1.4em;
+    margin: 1.5em 0.8em 0.5em 0.8em;
+}
+
+@mixin shadowBut {
+    box-shadow: 0px 3px 16px -10px #000000;
 }
 
 @mixin headButton {
     @include flexCenter-Xy ();
+    @include shadowBut();
     margin-top: 1em;
     height: 3em;
     width: 65%;
     border-radius: 1.5em;
-    box-shadow: 0px 3px 20px -10px #000000;
     color: white;
     background: linear-gradient( $colorSecondary, $colorPrimary);
 }
@@ -41,6 +45,14 @@ body{
 
 h1{
     font-family: 'Shrikhand', cursive;
+}
+
+h2{
+    @include fontTitle();
+}
+
+p{
+    font-size: 0.9em;
 }
 
 a {
@@ -72,15 +84,53 @@ a {
     @include flexCenter-Xy( $justifyContent: unset);
     flex-direction: column;
     text-align: center;
-    height: 16em;
-    background-color: eclair($eclair: grey);
+    height: 17em;
+    background-color: eclair($eclair: $colorPrimary);
     &__title{
-        width: 95%;
+        width: 90%;
         &--title{
             @include fontTitle();
         }
     }
     &__button{
         @include headButton();
+    }
+}
+
+.foncStep{
+    @include flexCenter-Xy( $justifyContent: space-between);
+    height: 15em;
+    flex-direction: column;
+    &__exemple{
+        @include flexCenter-Xy( $justifyContent: unset);
+        @include shadowBut();
+        background-color: eclair($colorPrimary);
+        height: 4em;
+        width: 90%;
+        border-radius: 1em;
+        & > span{
+            position: relative;
+            right: 0.7em;
+            height: 1.4em;
+            width: 1.4em;
+            border-radius: 0.7em;
+            background-color: $colorPrimary;
+            text-align: center;
+            color: white;
+            font-size: smaller;
+        }
+        & > i{
+            color: eclair($colorPrimary, $lightness: 50%);
+            margin: 0 1.2em 0 0.5em;
+        }
+        & > p{
+            font-weight: bold;
+        }
+        &--mod{
+            background-color: eclair($colorPrimary,$saturation: 100%, $lightness: 96%);
+            & > i{
+                color: $colorPrimary;
+            }
+        }
     }
 }
