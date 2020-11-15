@@ -20,6 +20,7 @@ h2 {
 
 p {
   font-size: 0.9em;
+  margin: 0.3em 0 0.3em 0;
 }
 
 a {
@@ -269,7 +270,7 @@ a {
 }
 
 .allResto__restoCard__loc {
-  margin: 0 0 0 0.7em;
+  margin-left: 0.7em;
 }
 
 .fa-stack {
@@ -280,5 +281,47 @@ a {
 .fa-stack .fas {
   background-image: -webkit-gradient(linear, left top, left bottom, from(blue), to(red)) !important;
   background-image: linear-gradient(blue, red) !important;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -webkit-box-orient: unset;
+  -webkit-box-direction: unset;
+      -ms-flex-direction: unset;
+          flex-direction: unset;
+  height: 11em;
+  background-color: #333333;
+  color: white;
+}
+
+.footerContent {
+  margin-left: 1em;
+}
+
+.footerContent > h1 {
+  margin: 0.5em 0 0.5em 0;
+  font-size: 1.2em;
+  font-weight: lighter;
+}
+
+.footerContent > p {
+  font-size: 0.9em;
+}
+
+.footerContent > p > i {
+  font-size: 0.8em;
+  margin-right: 0.5rem;
+}
+
+.footerContent > p > .mod {
+  font-size: 0.6em;
 }
 /*# sourceMappingURL=styles.css.map */
