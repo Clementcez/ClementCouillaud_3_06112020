@@ -11,16 +11,17 @@ $colorThirdly: #99E2D0;
     @return $eclair;
 }
 
-@mixin flexCenter-Xy ($alignItems: center, $justifyContent: center) {
+@mixin flexCenter-Xy ($alignItems: center, $justifyContent: center, $flexDirection: column) {
     display: flex;
     align-items: $alignItems;
     justify-content: $justifyContent;
+    flex-direction: $flexDirection;
 }
 
 @mixin fontTitle {
     font-weight: bold;
     font-size: 1.4em;
-    margin: 1.5em 0.8em 0.5em 0.8em;
+    margin: 1.5em 0.8em 1em 0.8em;
 }
 
 @mixin shadowBut {
@@ -35,12 +36,17 @@ $colorThirdly: #99E2D0;
     width: 65%;
     border-radius: 1.5em;
     color: white;
-    background: linear-gradient( $colorSecondary, $colorPrimary);
+    background: linear-gradient($colorSecondary, $colorPrimary);
 }
 
 body{
     margin: unset;
     font-family: 'Shirkhand', 'Roboto', sans-serif;
+}
+
+main{
+    background-color: eclair($colorPrimary);
+    padding: 0.5em 0 4em 0;
 }
 
 h1{
@@ -59,7 +65,8 @@ a {
     outline: none;
     text-decoration: none;
     color: unset;
-  }
+    height: inherit;
+}
 
 .header{
     height: 4em;
@@ -70,7 +77,7 @@ a {
 }
 
 .headLoc{
-    @include flexCenter-Xy();
+    @include flexCenter-Xy($flexDirection: unset);
     height: 3em;
     box-shadow: 0px 18px 9px -19px grey inset;
     background-color: rgb(224, 224, 224);
@@ -82,7 +89,6 @@ a {
 
 .headTitleButton{
     @include flexCenter-Xy( $justifyContent: unset);
-    flex-direction: column;
     text-align: center;
     height: 17em;
     background-color: eclair($eclair: $colorPrimary);
@@ -100,9 +106,9 @@ a {
 .foncStep{
     @include flexCenter-Xy( $justifyContent: space-between);
     height: 15em;
-    flex-direction: column;
+    margin-bottom: 3em;
     &__exemple{
-        @include flexCenter-Xy( $justifyContent: unset);
+        @include flexCenter-Xy( $justifyContent: unset, $flexDirection: unset);
         @include shadowBut();
         background-color: eclair($colorPrimary);
         height: 4em;
@@ -132,5 +138,54 @@ a {
                 color: $colorPrimary;
             }
         }
+    }
+}
+
+.allResto{
+    @include flexCenter-Xy($justifyContent: space-between);
+    height: 60em;
+    &__restoCard{
+        @include flexCenter-Xy($alignItems: unset, $justifyContent: unset);
+        @include shadowBut();
+        width: 90%;
+        height: 14em;
+        border-radius: 1em;
+        &__new{
+            position: absolute;
+            left: 13.5em;
+            bottom: -2em;
+            color: green;
+            background-color: $colorThirdly;
+            border-radius: 2px;
+            & > p{
+                margin: 0.5em 1.1em 0.5em 1.1em;
+                font-weight: bold;
+                font-size: 0.8em;
+            }
+            &--mod{
+                bottom: -17.3em;
+            }
+        }
+        & img{
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 1em 1em 0em 0em;
+        }
+        &__name{
+            margin: 0.8em 0 0 0.7em;
+            font-weight: bold;
+        }
+        &__loc{
+            margin: 0 0 0 0.7em;
+        }
+    }
+}
+
+.fa-stack{
+    position: absolute !important;
+    font-size: 1.1em;
+    & .fas{
+        background-image: linear-gradient(blue, red) !important;
     }
 }
