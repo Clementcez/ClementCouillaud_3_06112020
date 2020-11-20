@@ -1,6 +1,7 @@
 body {
   margin: unset;
   font-family: 'Shirkhand', 'Roboto', sans-serif;
+  position: relative;
 }
 
 main {
@@ -28,6 +29,129 @@ a {
   text-decoration: none;
   color: unset;
   height: inherit;
+}
+
+button {
+  border: none;
+  background-color: transperant;
+  outline: none;
+  padding: unset;
+}
+
+@-webkit-keyframes progress-bar {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes progress-bar {
+  0% {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@-webkit-keyframes progress-txt {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes progress-txt {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.loadContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 10em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 15em;
+  z-index: -1;
+}
+
+.loadContainer .progressBar {
+  background: -webkit-gradient(linear, left top, right top, from(#9356DC), to(#FF79DA));
+  background: linear-gradient(0.25turn, #9356DC, #FF79DA);
+  height: 3.2em;
+  width: 320px;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+  -webkit-animation: progress-bar 1.5s 150ms both ease-in-out;
+          animation: progress-bar 1.5s 150ms both ease-in-out;
+  -webkit-box-shadow: 0px 3px 16px -10px #000000;
+          box-shadow: 0px 3px 16px -10px #000000;
+}
+
+.loadContainer .letterWhite {
+  position: absolute;
+  font-size: 2.8em;
+  font-family: "Shrikhand";
+  color: white;
+  z-index: 1;
+  opacity: 1;
+  -webkit-animation: progress-txt 300ms 1.5s both;
+          animation: progress-txt 300ms 1.5s both;
+}
+
+.loadContainer .letterBlack {
+  position: absolute;
+  font-size: 2.8em;
+  font-family: "Shrikhand";
+  color: black;
+}
+
+@-webkit-keyframes body {
+  0% {
+    -webkit-transform: translateX(-9999px);
+            transform: translateX(-9999px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes body {
+  0% {
+    -webkit-transform: translateX(-9999px);
+            transform: translateX(-9999px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.bodyAnim {
+  -webkit-animation: body 1s 1.7s both;
+          animation: body 1s 1.7s both;
 }
 
 .header {
@@ -91,7 +215,7 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
-  height: 17em;
+  height: 16em;
   background-color: #f5f4f6;
 }
 
@@ -105,7 +229,7 @@ a {
   margin: 1.5em 0.8em 1em 0.8em;
 }
 
-.headTitleButton__button {
+.headTitleButton .button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -121,13 +245,35 @@ a {
           flex-direction: column;
   -webkit-box-shadow: 0px 3px 16px -10px #000000;
           box-shadow: 0px 3px 16px -10px #000000;
-  margin-top: 1em;
+  position: relative;
+  margin-top: 2em;
   height: 3em;
   width: 65%;
   border-radius: 1.5em;
   color: white;
   background: -webkit-gradient(linear, left top, left bottom, from(#FF79DA), to(#9356DC));
   background: linear-gradient(#FF79DA, #9356DC);
+  z-index: 1;
+}
+
+.headTitleButton .button:hover::after {
+  opacity: 1;
+}
+
+.headTitleButton .button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff99e3), to(#c799ff));
+  background: linear-gradient(#ff99e3, #c799ff);
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+  border-radius: 1.5em;
 }
 
 .foncStep {
@@ -235,12 +381,30 @@ a {
   width: 90%;
   height: 14em;
   border-radius: 1em;
+  position: relative;
+  z-index: 0;
+}
+
+.allResto__restoCard > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: unset;
+      -ms-flex-align: unset;
+          align-items: unset;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .allResto__restoCard__new {
   position: absolute;
-  left: 13.5em;
-  bottom: -2em;
+  left: 12.5em;
+  top: 0.8em;
   color: green;
   background-color: #99E2D0;
   border-radius: 2px;
@@ -250,10 +414,6 @@ a {
   margin: 0.5em 1.1em 0.5em 1.1em;
   font-weight: bold;
   font-size: 0.8em;
-}
-
-.allResto__restoCard__new--mod {
-  bottom: -17.3em;
 }
 
 .allResto__restoCard img {
@@ -273,14 +433,36 @@ a {
   margin-left: 0.7em;
 }
 
-.fa-stack {
-  position: absolute !important;
-  font-size: 1.1em;
+.heart {
+  font-size: 1.4em;
+  z-index: 2;
+  cursor: pointer;
+  position: absolute;
+  background: #f5f4f6;
+  top: 8em;
+  right: 0.3em;
+  bottom: 0.3em;
+  left: 11em;
+  opacity: 1;
+  -webkit-transition: opacity 250ms;
+  transition: opacity 250ms;
 }
 
-.fa-stack .fas {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(blue), to(red)) !important;
-  background-image: linear-gradient(blue, red) !important;
+.heart:active {
+  opacity: 0;
+}
+
+.heart__hover {
+  position: absolute;
+  font-size: 1.4em;
+  top: 8em;
+  right: 0.3em;
+  bottom: 0.3em;
+  left: 11em;
+  background: -webkit-linear-gradient(#9356DC, #FF79DA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
 }
 
 footer {

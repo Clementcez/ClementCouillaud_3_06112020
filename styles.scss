@@ -28,15 +28,40 @@ $colorThirdly: #99E2D0;
     box-shadow: 0px 3px 16px -10px #000000;
 }
 
+$cpLight: eclair($colorPrimary, $saturation: 100%, $lightness: 80%);
+$csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
+
 @mixin headButton {
+    .button{
     @include flexCenter-Xy ();
     @include shadowBut();
-    margin-top: 1em;
+    position: relative;
+    margin-top: 2em;
     height: 3em;
     width: 65%;
     border-radius: 1.5em;
     color: white;
     background: linear-gradient($colorSecondary, $colorPrimary);
+    z-index: 1;
+    &:hover{
+        &::after{
+            opacity: 1;
+        }
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;  
+        left: 0;
+        background: linear-gradient($csLight, $cpLight);
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 300ms;
+        border-radius: 1.5em;
+    }
+    }
 }
 
 @mixin footer {
@@ -69,6 +94,7 @@ $colorThirdly: #99E2D0;
 body{
     margin: unset;
     font-family: 'Shirkhand', 'Roboto', sans-serif;
+    position: relative;
 }
 
 main{
@@ -96,6 +122,80 @@ a {
     height: inherit;
 }
 
+button{
+    border:none;
+    background-color:transperant;
+    outline:none;
+    padding: unset;
+}
+
+@keyframes progress-bar {
+	0% {
+		transform: scaleX(0);
+	}
+
+	100% {
+		transform: scaleX(1);
+	}
+}
+
+@keyframes progress-txt {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.loadContainer{
+	display: flex;
+	height: 10em;
+	align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15em;
+    z-index: -1;
+    .progressBar{
+        background: linear-gradient(0.25turn, $colorPrimary, $colorSecondary);
+        height: 3.2em;
+        width: 320px;
+        transform-origin: left;
+        transform: scaleX(0.5);
+        animation: progress-bar 1.5s 150ms both ease-in-out;
+        box-shadow: 0px 3px 16px -10px #000000;
+    }
+    .letterWhite{
+        position: absolute;
+        font-size: 2.8em;
+        font-family: "Shrikhand";
+        color: white;
+        z-index: 1;
+        opacity: 1;
+        animation: progress-txt 300ms 1.5s both;
+    }
+    .letterBlack{
+        position: absolute;
+        font-size: 2.8em;
+        font-family: "Shrikhand";
+        color: black;
+    }
+}
+
+@keyframes body{
+    0% {
+        transform: translateX(-9999px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.bodyAnim{
+    animation: body 1s 1.7s both;
+}
+
 .header{
     height: 4em;
     @include flexCenter-Xy();
@@ -118,7 +218,7 @@ a {
 .headTitleButton{
     @include flexCenter-Xy( $justifyContent: unset);
     text-align: center;
-    height: 17em;
+    height: 16em;
     background-color: eclair($eclair: $colorPrimary);
     &__title{
         width: 90%;
@@ -126,9 +226,7 @@ a {
             @include fontTitle();
         }
     }
-    &__button{
-        @include headButton();
-    }
+    @include headButton();
 }
 
 .foncStep{
@@ -178,10 +276,15 @@ a {
         width: 90%;
         height: 14em;
         border-radius: 1em;
+        position: relative;
+        z-index: 0;
+        & > a{
+            @include flexCenter-Xy($alignItems: unset, $justifyContent: unset);
+        }
         &__new{
             position: absolute;
-            left: 13.5em;
-            bottom: -2em;
+            left: 12.5em;
+            top: 0.8em;
             color: green;
             background-color: $colorThirdly;
             border-radius: 2px;
@@ -189,9 +292,6 @@ a {
                 margin: 0.5em 1.1em 0.5em 1.1em;
                 font-weight: bold;
                 font-size: 0.8em;
-            }
-            &--mod{
-                bottom: -17.3em;
             }
         }
         & img{
@@ -210,12 +310,34 @@ a {
     }
 }
 
-.fa-stack{
-    position: absolute !important;
-    font-size: 1.1em;
-    & .fas{
-        background-image: linear-gradient(blue, red) !important;
+.heart{
+    font-size: 1.4em;
+    z-index: 2;
+    cursor: pointer;
+    position: absolute;
+    background: eclair($colorPrimary);
+    top: 8em;
+    right: 0.3em;
+    bottom: 0.3em;  
+    left: 11em;
+    opacity: 1;
+    transition: opacity 250ms;
+    &:active{
+        opacity: 0;
+    }
+    &__hover{
+        position: absolute;
+        font-size: 1.4em;
+        top: 8em;
+        right: 0.3em;
+        bottom: 0.3em;  
+        left: 11em;
+        background: -webkit-linear-gradient($colorPrimary, $colorSecondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 1;
     }
 }
+
 
 @include footer;
