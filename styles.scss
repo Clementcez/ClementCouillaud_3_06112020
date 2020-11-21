@@ -132,8 +132,18 @@ button{
 @keyframes progress-bar {
 	0% {
 		transform: scaleX(0);
-	}
-
+    }
+    17% {
+        transform: scaleX(0.18);
+    }
+    24% {
+        transform: scaleX(0.40);
+        animation-timing-function: cubic-bezier(.9,0,.1,1);
+    }
+    46% {
+        transform: scaleX(0.81);
+        animation-timing-function: cubic-bezier(.25,0.25,1);
+    }
 	100% {
 		transform: scaleX(1);
 	}
@@ -149,22 +159,52 @@ button{
 	}
 }
 
+@keyframes spin{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    70%{
+    }
+
+    100%{
+        transform: rotate(360deg);
+
+    }
+}
+
+@keyframes spin {
+    0% { 
+        transform: rotate(0deg); 
+    }
+
+    50%{
+        transform: rotate(360deg);
+    }
+    
+    100% { 
+        transform: rotate(720deg); 
+    }
+}
+
+$clrSpin: lighten($colorSecondary, 15%);
+$clrBorder: lighten($colorPrimary, 15%);
+
 .loadContainer{
 	display: flex;
-    height: 10em;
+    height: auto;
     width: 100%;
 	align-items: center;
     justify-content: center;
     position: absolute;
-    top: 15em;
+    top: 10em;
     z-index: -1;
     .progressBar{
         background: linear-gradient(0.25turn, $colorPrimary, $colorSecondary);
         height: 3.2em;
         width: 100%;
         transform-origin: left;
-        transform: scaleX(0.5);
-        animation: progress-bar 1.5s 150ms both ease-in-out;
+        animation: progress-bar 2s 150ms both ease-in-out;
         box-shadow: 0px 3px 16px -10px #000000;
     }
     .letterWhite{
@@ -174,13 +214,23 @@ button{
         color: white;
         z-index: 1;
         opacity: 1;
-        animation: progress-txt 300ms 1.5s both;
+        animation: progress-txt 300ms 2s both;
     }
     .letterBlack{
         position: absolute;
         font-size: 2.8em;
         font-family: "Shrikhand";
         color: black;
+    }
+    .spin {
+        position: absolute;
+        top: 5em;
+        border: 1em solid $clrBorder; 
+        border-top: 1em solid $clrSpin;
+        border-radius: 50%;
+        width: 6em;
+        height: 6em;
+        animation: spin 1.5s ease-in-out 3;
     }
 }
 
@@ -194,7 +244,7 @@ button{
 }
 
 .bodyAnim{
-    animation: body 1s 1.7s both;
+    animation: body 1s 1.8s both;
 }
 
 .header{

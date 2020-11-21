@@ -43,6 +43,22 @@ button {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
   }
+  17% {
+    -webkit-transform: scaleX(0.18);
+            transform: scaleX(0.18);
+  }
+  24% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+    -webkit-animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+            animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+  }
+  46% {
+    -webkit-transform: scaleX(0.81);
+            transform: scaleX(0.81);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+  }
   100% {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
@@ -53,6 +69,22 @@ button {
   0% {
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
+  }
+  17% {
+    -webkit-transform: scaleX(0.18);
+            transform: scaleX(0.18);
+  }
+  24% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+    -webkit-animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+            animation-timing-function: cubic-bezier(0.9, 0, 0.1, 1);
+  }
+  46% {
+    -webkit-transform: scaleX(0.81);
+            transform: scaleX(0.81);
+    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
   }
   100% {
     -webkit-transform: scaleX(1);
@@ -78,11 +110,52 @@ button {
   }
 }
 
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  70% {
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
 .loadContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 10em;
+  height: auto;
   width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -91,7 +164,7 @@ button {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  top: 15em;
+  top: 10em;
   z-index: -1;
 }
 
@@ -102,10 +175,8 @@ button {
   width: 100%;
   -webkit-transform-origin: left;
           transform-origin: left;
-  -webkit-transform: scaleX(0.5);
-          transform: scaleX(0.5);
-  -webkit-animation: progress-bar 1.5s 150ms both ease-in-out;
-          animation: progress-bar 1.5s 150ms both ease-in-out;
+  -webkit-animation: progress-bar 2s 150ms both ease-in-out;
+          animation: progress-bar 2s 150ms both ease-in-out;
   -webkit-box-shadow: 0px 3px 16px -10px #000000;
           box-shadow: 0px 3px 16px -10px #000000;
 }
@@ -117,8 +188,8 @@ button {
   color: white;
   z-index: 1;
   opacity: 1;
-  -webkit-animation: progress-txt 300ms 1.5s both;
-          animation: progress-txt 300ms 1.5s both;
+  -webkit-animation: progress-txt 300ms 2s both;
+          animation: progress-txt 300ms 2s both;
 }
 
 .loadContainer .letterBlack {
@@ -126,6 +197,18 @@ button {
   font-size: 2.8em;
   font-family: "Shrikhand";
   color: black;
+}
+
+.loadContainer .spin {
+  position: absolute;
+  top: 5em;
+  border: 1em solid #bc95e9;
+  border-top: 1em solid #ffc6ef;
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  -webkit-animation: spin 1.5s ease-in-out 3;
+          animation: spin 1.5s ease-in-out 3;
 }
 
 @-webkit-keyframes body {
@@ -151,8 +234,8 @@ button {
 }
 
 .bodyAnim {
-  -webkit-animation: body 1s 1.7s both;
-          animation: body 1s 1.7s both;
+  -webkit-animation: body 1s 1.8s both;
+          animation: body 1s 1.8s both;
 }
 
 .header {
