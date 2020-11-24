@@ -1,0 +1,40 @@
+body{
+    margin: unset;
+    font-family: 'Shirkhand', 'Roboto', sans-serif;
+    position: relative;
+}
+
+main{
+    background-color: eclair($colorPrimary);
+    padding: 0.5em 0 4em 0;
+}
+
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+h2{
+    @include fontTitle();
+}
+
+p{
+    font-size: 0.9em;
+    margin: 0.3em 0 0.3em 0;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: unset;
+    height: inherit;
+}
+
+button{
+    border:none;
+    background-color:transperant;
+    outline:none;
+    padding: unset;
+    font-family: inherit;
+}

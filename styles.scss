@@ -1,251 +1,8 @@
+@import 'sass/utils';
+@import 'sass/bases';
+@import 'sass/anim';
 
-$colorPrimary: #9356DC;
-$colorSecondary: #FF79DA;
-$colorThirdly: #99E2D0;
-
-@function eclair($eclair, $saturation: 10%, $lightness: 96%) {
-    $hue: hue($eclair);
-    $sat: $saturation;
-    $light: $lightness;
-    $eclair: hsl($hue, $sat, $light);
-    @return $eclair;
-}
-
-@mixin flexCenter-Xy ($alignItems: center, $justifyContent: center, $flexDirection: column) {
-    display: flex;
-    align-items: $alignItems;
-    justify-content: $justifyContent;
-    flex-direction: $flexDirection;
-}
-
-@mixin fontTitle {
-    font-weight: bold;
-    font-size: 1.4em;
-    margin: 1.5em 0.8em 1em 0.8em;
-}
-
-@mixin shadowBut {
-    box-shadow: 0px 3px 16px -10px #000000;
-}
-
-$cpLight: eclair($colorPrimary, $saturation: 100%, $lightness: 80%);
-$csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
-
-@mixin headButton {
-    .button{
-    @include flexCenter-Xy ();
-    @include shadowBut();
-    position: relative;
-    margin-top: 2em;
-    height: 3em;
-    width: 65%;
-    border-radius: 1.5em;
-    color: white;
-    background: linear-gradient($colorSecondary, $colorPrimary);
-    z-index: 1;
-    &:hover{
-        &::after{
-            opacity: 1;
-        }
-    }
-    &::after{
-        content: "";
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;  
-        left: 0;
-        background: linear-gradient($csLight, $cpLight);
-        opacity: 0;
-        z-index: -1;
-        transition: opacity 300ms;
-        border-radius: 1.5em;
-    }
-    }
-}
-
-@mixin footer {
-    footer{
-        @include flexCenter-Xy($justifyContent: unset, $flexDirection: unset);
-        height: 11em;
-        background-color: eclair(black, $saturation: 0%, $lightness: 20%);
-        color: white;
-    }
-    .footerContent{
-        margin-left: 1em;
-        & > h1{
-            margin: 0.5em 0 0.5em 0;
-            font-size: 1.2em;
-            font-weight: lighter;
-        }
-        & > p{
-            font-size: 0.9em;
-            & > i{
-                font-size: 0.8em;
-                margin-right: 0.5rem;
-            }
-            & > .mod{
-                font-size: 0.6em;
-            }
-        }
-    }
-}
-
-body{
-    margin: unset;
-    font-family: 'Shirkhand', 'Roboto', sans-serif;
-    position: relative;
-}
-
-main{
-    background-color: eclair($colorPrimary);
-    padding: 0.5em 0 4em 0;
-}
-
-h1{
-    font-family: 'Shrikhand', cursive;
-}
-
-h2{
-    @include fontTitle();
-}
-
-p{
-    font-size: 0.9em;
-    margin: 0.3em 0 0.3em 0;
-}
-
-a {
-    outline: none;
-    text-decoration: none;
-    color: unset;
-    height: inherit;
-}
-
-button{
-    border:none;
-    background-color:transperant;
-    outline:none;
-    padding: unset;
-}
-
-@keyframes progress-bar {
-	0% {
-		transform: scaleX(0);
-    }
-    17% {
-        transform: scaleX(0.18);
-    }
-    24% {
-        transform: scaleX(0.40);
-        animation-timing-function: cubic-bezier(.9,0,.1,1);
-    }
-    46% {
-        transform: scaleX(0.81);
-        animation-timing-function: cubic-bezier(.25,0.25,1);
-    }
-	100% {
-		transform: scaleX(1);
-	}
-}
-
-@keyframes progress-txt {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes spin{
-    0%{
-        transform: rotate(0deg);
-    }
-
-    70%{
-    }
-
-    100%{
-        transform: rotate(360deg);
-
-    }
-}
-
-@keyframes spin {
-    0% { 
-        transform: rotate(0deg); 
-    }
-
-    50%{
-        transform: rotate(360deg);
-    }
-    
-    100% { 
-        transform: rotate(720deg); 
-    }
-}
-
-$clrSpin: lighten($colorSecondary, 15%);
-$clrBorder: lighten($colorPrimary, 15%);
-
-.loadContainer{
-	display: flex;
-    height: auto;
-    width: 100%;
-	align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 10em;
-    z-index: -1;
-    .progressBar{
-        background: linear-gradient(0.25turn, $colorPrimary, $colorSecondary);
-        height: 3.2em;
-        width: 100%;
-        transform-origin: left;
-        animation: progress-bar 2s 150ms both ease-in-out;
-        box-shadow: 0px 3px 16px -10px #000000;
-    }
-    .letterWhite{
-        position: absolute;
-        font-size: 2.8em;
-        font-family: "Shrikhand";
-        color: white;
-        z-index: 1;
-        opacity: 1;
-        animation: progress-txt 300ms 2s both;
-    }
-    .letterBlack{
-        position: absolute;
-        font-size: 2.8em;
-        font-family: "Shrikhand";
-        color: black;
-    }
-    .spin {
-        position: absolute;
-        top: 5em;
-        border: 1em solid $clrBorder; 
-        border-top: 1em solid $clrSpin;
-        border-radius: 50%;
-        width: 6em;
-        height: 6em;
-        animation: spin 1.5s ease-in-out 3;
-    }
-}
-
-@keyframes body{
-    0% {
-        transform: translateX(-9999px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.bodyAnim{
-    animation: body 1s 1.8s both;
-}
+// page acceuil ...................................
 
 .header{
     height: 4em;
@@ -275,6 +32,7 @@ $clrBorder: lighten($colorPrimary, 15%);
         width: 90%;
         &--title{
             @include fontTitle();
+            font-family: 'Roboto', sans-serif;
         }
     }
     @include headButton();
@@ -392,3 +150,110 @@ $clrBorder: lighten($colorPrimary, 15%);
 
 
 @include footer;
+
+// page acceuil fin ...................................
+
+// page à la française ...................................
+
+@include headerTitleImgMenu;
+
+@keyframes onLoad{
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes checked{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.entrées{
+    padding: 0 0.8em 0 0.8em;
+    &__title{
+        border-bottom: 3px solid $colorThirdly;
+        width: 2.5em;
+        height: 1.5em;
+    }
+    &__choix{
+        @include flexCenter-Xy($alignItems: unset, $justifyContent: unset, $flexDirection: row);
+        @include shadowBut();
+        background: white;
+        height: 4em;
+        border-radius: 1em;
+        margin-top: 1em;
+        cursor: pointer;
+        opacity: 0;
+        animation: onLoad 1s 800ms ease-out forwards;
+        &:active .entrées__choix__hover{
+            width: 18%;
+            & .entrées__choix__hover__checked{
+                animation: 400ms 100ms checked 1 forwards;
+            }
+        }
+        &:active .entrées__choix__content{
+            width: 82%;
+        }
+        &__hover{
+            @include flexCenter-Xy($flexDirection: unset);
+            border-radius: 0 1em 1em 0;
+            background: $colorThirdly;
+            width: 0%;
+            transition: width 500ms;
+            &__checked{
+                color: white;
+                overflow: hidden;
+                font-size: 1.5em;
+            }
+        }
+        &__content{
+            @include flexCenter-Xy($justifyContent: center, $alignItems: unset, $flexDirection: column);
+            width: 100%;
+            transition: width 500ms;
+            & > h2{
+                margin: 0.2em 0 0 0.6em;
+                font-size: 1em;
+            }
+            &__truc{
+                width: 200px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            &__compo{
+                @include flexCenter-Xy($justifyContent: space-between, $alignItems: unset, $flexDirection: row);
+                margin: 0 1em 0 0.6em;
+            }
+            &__price{
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+
+
+.buttonCom{
+    @include headButton;
+    @include flexCenter-Xy;
+}
+
+@include footer;
+
+

@@ -1,0 +1,144 @@
+$colorPrimary: #9356DC;
+$colorSecondary: #FF79DA;
+$colorThirdly: #99E2D0;
+
+@function eclair($eclair, $saturation: 10%, $lightness: 96%) {
+    $hue: hue($eclair);
+    $sat: $saturation;
+    $light: $lightness;
+    $eclair: hsl($hue, $sat, $light);
+    @return $eclair;
+}
+
+@mixin flexCenter-Xy ($alignItems: center, $justifyContent: center, $flexDirection: column) {
+    display: flex;
+    align-items: $alignItems;
+    justify-content: $justifyContent;
+    flex-direction: $flexDirection;
+}
+
+@mixin fontTitle {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin: 1.5em 0.8em 1em 0.8em;
+}
+
+@mixin shadowBut {
+    box-shadow: 0px 3px 16px -10px #000000;
+}
+
+$cpLight: eclair($colorPrimary, $saturation: 100%, $lightness: 80%);
+$csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
+
+@mixin headButton {
+    .button{
+    @include flexCenter-Xy ();
+    @include shadowBut();
+    position: relative;
+    margin-top: 2em;
+    height: 3em;
+    width: 65%;
+    border-radius: 1.5em;
+    color: white;
+    background: linear-gradient($colorSecondary, $colorPrimary);
+    z-index: 1;
+    &:hover{
+        &::after{
+            opacity: 1;
+        }
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;  
+        left: 0;
+        background: linear-gradient($csLight, $cpLight);
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 300ms;
+        border-radius: 1.5em;
+    }
+    }
+}
+
+@mixin footer {
+    footer{
+        @include flexCenter-Xy($justifyContent: unset, $flexDirection: unset);
+        height: 11em;
+        background-color: eclair(black, $saturation: 0%, $lightness: 20%);
+        color: white;
+    }
+    .footerContent{
+        margin-left: 1em;
+        & > h1{
+            margin: 0.5em 0 0.5em 0;
+            font-size: 1.2em;
+            font-weight: lighter;
+        }
+        & > p{
+            font-size: 0.9em;
+            & > i{
+                font-size: 0.8em;
+                margin-right: 0.5rem;
+            }
+            & > .mod{
+                font-size: 0.6em;
+            }
+        }
+    }
+}
+
+@mixin headerTitleImgMenu {
+    .headerMenu{
+        &__arrow{
+            position: absolute;
+            left: 1.5em;
+            top: 1.2em;
+            width: 3em;
+        }
+    }
+    
+    .headerMenuTitle{
+        position: relative;
+        &__img{
+            width: 100%;
+        }
+        &__title{
+            border-radius: 2em 2em 0 0;
+            background-color: eclair($colorPrimary);
+            height: 4em;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            & > h1{
+                margin-left: 0.5em;
+            }
+            &__heart{
+                font-size: 1.4em;
+                z-index: 2;
+                cursor: pointer;
+                position: absolute;
+                background: eclair($colorPrimary);
+                bottom: 0.9em;  
+                left: 12em;
+                opacity: 1;
+                transition: opacity 250ms;
+                &:active{
+                    opacity: 0;
+                }
+                &__hover{
+                    position: absolute;
+                    font-size: 1.4em;
+                    bottom: 0.9em;  
+                    left: 12em;
+                    background: -webkit-linear-gradient($colorPrimary, $colorSecondary);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
