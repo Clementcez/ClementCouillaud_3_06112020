@@ -76,6 +76,11 @@
     }
 }
 
+// balise main
+.main{
+    padding: 0.8em 0 4em 0;
+}
+
 .allResto{
     @include flexCenter-Xy($justifyContent: space-between);
     height: 60em;
@@ -153,101 +158,26 @@
 
 // page acceuil fin ...................................
 
-// page à la française ...................................
+// page Menus ...............
 
 @include headerTitleImgMenu;
 
-@keyframes onLoad{
-    0%{
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    50%{
-        opacity: 1;
-    }
-
-    100%{
-        transform: translateY(0px);
-        opacity: 1;
-    }
-}
-
-@keyframes checked{
-    0%{
-        transform: rotate(0deg);
-    }
-
-    100%{
-        transform: rotate(360deg);
-    }
+// balise main
+.mainContent{
+    padding-bottom: 4em;
 }
 
 .entrées{
-    padding: 0 0.8em 0 0.8em;
-    &__title{
-        border-bottom: 3px solid $colorThirdly;
-        width: 2.5em;
-        height: 1.5em;
-    }
-    &__choix{
-        @include flexCenter-Xy($alignItems: unset, $justifyContent: unset, $flexDirection: row);
-        @include shadowBut();
-        background: white;
-        height: 4em;
-        border-radius: 1em;
-        margin-top: 1em;
-        cursor: pointer;
-        opacity: 0;
-        animation: onLoad 1s 800ms ease-out forwards;
-        &:active .entrées__choix__hover{
-            width: 18%;
-            & .entrées__choix__hover__checked{
-                animation: 400ms 100ms checked 1 forwards;
-            }
-        }
-        &:active .entrées__choix__content{
-            width: 82%;
-        }
-        &__hover{
-            @include flexCenter-Xy($flexDirection: unset);
-            border-radius: 0 1em 1em 0;
-            background: $colorThirdly;
-            width: 0%;
-            transition: width 500ms;
-            &__checked{
-                color: white;
-                overflow: hidden;
-                font-size: 1.5em;
-            }
-        }
-        &__content{
-            @include flexCenter-Xy($justifyContent: center, $alignItems: unset, $flexDirection: column);
-            width: 100%;
-            transition: width 500ms;
-            & > h2{
-                margin: 0.2em 0 0 0.6em;
-                font-size: 1em;
-            }
-            &__truc{
-                width: 200px;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-            &__compo{
-                @include flexCenter-Xy($justifyContent: space-between, $alignItems: unset, $flexDirection: row);
-                margin: 0 1em 0 0.6em;
-            }
-            &__price{
-                font-weight: bold;
-            }
-        }
-    }
+    @include animMenu;
 }
 
+.plats{
+    @include animMenu;
+}
 
-
+.desserts{
+    @include animMenu;
+}
 
 .buttonCom{
     @include headButton;

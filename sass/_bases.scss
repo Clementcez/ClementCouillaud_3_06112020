@@ -6,7 +6,6 @@ body{
 
 main{
     background-color: eclair($colorPrimary);
-    padding: 0.5em 0 4em 0;
 }
 
 h1{
@@ -37,4 +36,11 @@ button{
     outline:none;
     padding: unset;
     font-family: inherit;
+}
+
+footer{
+    @include flexCenter-Xy($justifyContent: unset, $flexDirection: unset);
+    height: 11em;
+    background-color: eclair(black, $saturation: 0%, $lightness: 20%);
+    color: white;
 }
