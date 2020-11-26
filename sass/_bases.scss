@@ -1,7 +1,17 @@
+html{
+    @include mobile{
+        background: white;
+    }
+    @include other{
+        background: linear-gradient(0.25turn, $colorPrimary, $colorSecondary);
+    }
+}
+
 body{
-    margin: unset;
+    margin: auto;
     font-family: 'Shirkhand', 'Roboto', sans-serif;
     position: relative;
+    max-width: 425px;
 }
 
 main{

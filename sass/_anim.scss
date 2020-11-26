@@ -13,8 +13,15 @@
         transform: scaleX(0.81);
         animation-timing-function: cubic-bezier(.25,0.25,1);
     }
+
+    70%{
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
 	100% {
-		transform: scaleX(1);
+        opacity: 0;
+        animation-timing-function: ease;
 	}
 }
 
@@ -28,19 +35,6 @@
 	}
 }
 
-@keyframes spin{
-    0%{
-        transform: rotate(0deg);
-    }
-
-    70%{
-    }
-
-    100%{
-        transform: rotate(360deg);
-
-    }
-}
 
 @keyframes spin {
     0% { 
@@ -73,8 +67,8 @@ $clrBorder: lighten($colorPrimary, 15%);
         height: 3.2em;
         width: 100%;
         transform-origin: left;
-        animation: progress-bar 2s 150ms both ease-in-out;
-        box-shadow: 0px 3px 16px -10px #000000;
+        animation: progress-bar 2.5s 150ms both ease-in-out;
+        box-shadow: 0px 3px 20px -10px #000000;
     }
     .letterWhite{
         position: absolute;
@@ -114,6 +108,10 @@ $clrBorder: lighten($colorPrimary, 15%);
 
 .bodyAnim{
     animation: body 1s 1.8s both;
+    background-color: white;
+    @include other{
+        box-shadow: 0px 3px 20px -10px #000000;
+    }
 }
 
 @keyframes onLoad{

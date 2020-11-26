@@ -86,6 +86,7 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
 
 @mixin headerTitleImgMenu {
     .headerMenu{
+        background-color: white;
         &__arrow{
             position: absolute;
             left: 1.5em;
@@ -122,6 +123,12 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                 left: 12em;
                 opacity: 1;
                 transition: opacity 250ms;
+                @include mobileM{
+                    left: 14em;
+                }
+                @include other{
+                    left: 16em;
+                }
                 &:active{
                     opacity: 0;
                 }
@@ -134,6 +141,12 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     z-index: 1;
+                    @include mobileM{
+                        left: 14em;
+                    }
+                    @include other{
+                        left: 16em;
+                    }
                 }
             }
         }
@@ -230,5 +243,29 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                 font-weight: bold;
             }
         }
+    }
+}
+
+$breakpoints:(
+    mobileM: 375px,
+    mobile: 425px,
+    desktop: 426px,
+);
+
+@mixin mobile {
+    @media screen and(max-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
+
+@mixin mobileM {
+    @media screen and(min-width: map-get($breakpoints, mobileM)){
+        @content;
+    }
+}
+
+@mixin other {
+    @media screen and(min-width: map-get($breakpoints, desktop)){
+        @content;
     }
 }
