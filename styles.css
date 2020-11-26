@@ -40,6 +40,12 @@ p {
   margin: 0.3em 0 0.3em 0;
 }
 
+@media screen and (min-width: 426px) {
+  p {
+    font-size: 1em;
+  }
+}
+
 a {
   outline: none;
   text-decoration: none;
@@ -947,10 +953,15 @@ footer {
 }
 
 .entrées__choix__content__def {
-  font-size: 0.8em;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 425px) {
+  .entrées__choix__content__def {
+    font-size: 0.8em;
+  }
 }
 
 .entrées__choix__content__caract {
@@ -1110,10 +1121,15 @@ footer {
 }
 
 .plats__choix__content__def {
-  font-size: 0.8em;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 425px) {
+  .plats__choix__content__def {
+    font-size: 0.8em;
+  }
 }
 
 .plats__choix__content__caract {
@@ -1273,10 +1289,15 @@ footer {
 }
 
 .desserts__choix__content__def {
-  font-size: 0.8em;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+@media screen and (max-width: 425px) {
+  .desserts__choix__content__def {
+    font-size: 0.8em;
+  }
 }
 
 .desserts__choix__content__caract {

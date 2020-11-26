@@ -230,7 +230,9 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                 overflow: hidden;
             }
             &__def{
-                font-size: 0.8em;
+                @include mobile{
+                    font-size: 0.8em;
+                }
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
