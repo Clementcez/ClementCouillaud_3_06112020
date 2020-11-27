@@ -1,7 +1,5 @@
 html{
-    @include mobile{
-        background: white;
-    }
+    background: white;
     @include other{
         background: linear-gradient(0.25turn, $colorPrimary, $colorSecondary);
     }
@@ -11,7 +9,7 @@ body{
     margin: auto;
     font-family: 'Shirkhand', 'Roboto', sans-serif;
     position: relative;
-    max-width: 425px;
+    max-width: 600px;
 }
 
 main{
@@ -22,6 +20,9 @@ h1{
     font-family: 'Shrikhand', cursive;
     font-size: 1.5em;
     font-weight: normal;
+    @include other{
+        font-size: 2em;
+    }
 }
 
 h2{
@@ -32,7 +33,7 @@ p{
     font-size: 0.9em;
     margin: 0.3em 0 0.3em 0;
     @include other{
-        font-size: 1em;
+        font-size: 1.2em;
     }
 }
 

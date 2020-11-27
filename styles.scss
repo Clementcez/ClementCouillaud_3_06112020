@@ -7,6 +7,9 @@
 .header{
     height: 4em;
     @include flexCenter-Xy();
+    @include other{
+        height: 6em;
+    }
     & > img{
         width: 50%;
     }
@@ -26,8 +29,11 @@
 .headTitleButton{
     @include flexCenter-Xy( $justifyContent: unset);
     text-align: center;
-    height: 16em;
+    height: 17em;
     background-color: eclair($eclair: $colorPrimary);
+    @include other{
+        height: 19em;
+    }
     &__title{
         width: 90%;
         &--title{
@@ -42,6 +48,9 @@
     @include flexCenter-Xy( $justifyContent: space-between);
     height: 15em;
     margin-bottom: 3em;
+    @include other{
+        height: 21em;
+    }
     &__exemple{
         @include flexCenter-Xy( $justifyContent: unset, $flexDirection: unset);
         @include shadowBut();
@@ -49,6 +58,10 @@
         height: 4em;
         width: 90%;
         border-radius: 1em;
+        @include other{
+            height: 6em;
+            border-radius: 2em;
+        }
         & > span{
             position: relative;
             right: 0.7em;
@@ -59,10 +72,16 @@
             text-align: center;
             color: white;
             font-size: smaller;
+            @include other{
+                font-size: 1.5em;
+            }
         }
         & > i{
             color: eclair($colorPrimary, $lightness: 50%);
             margin: 0 1.2em 0 0.5em;
+            @include other{
+                font-size: 1.2em;
+            }
         }
         & > p{
             font-weight: bold;
@@ -84,6 +103,9 @@
 .allResto{
     @include flexCenter-Xy($justifyContent: space-between);
     height: 60em;
+    @include other{
+        height: 80em;
+    }
     &__restoCard{
         @include flexCenter-Xy($alignItems: unset, $justifyContent: unset);
         @include shadowBut();
@@ -92,6 +114,9 @@
         border-radius: 1em;
         position: relative;
         z-index: 0;
+        @include other{
+            height: 19em;
+        }
         & > a{
             @include flexCenter-Xy($alignItems: unset, $justifyContent: unset);
         }
@@ -105,13 +130,22 @@
             @include mobileM{
                 left: 15.5em;
             }
-            @include other{
+            @include mobileL{
                 left: 18.5em;
+            }
+            @include mobileXL{
+                left: 22em;
+            }
+            @include other{
+                left: 26em;
             }
             & > p{
                 margin: 0.5em 1.1em 0.5em 1.1em;
                 font-weight: bold;
                 font-size: 0.8em;
+                @include other{
+                    font-size: 1em;
+                }
             }
         }
         & img{
@@ -123,6 +157,9 @@
         &__name{
             margin: 0.8em 0 0 0.7em;
             font-weight: bold;
+            @include other{
+                margin: 1.3em 0 0 0.7em;
+            }
         }
         &__loc{
             margin-left: 0.7em;
@@ -143,10 +180,18 @@
     opacity: 1;
     transition: opacity 250ms;
     @include mobileM{
-        left: 13em;
+        left: 12.5em;
+    }
+    @include mobileL{
+        left: 15.5em;
+    }
+    @include mobileXL{
+        left: 18em;
     }
     @include other{
-        left: 15em;
+        left: 18em;
+        top: 9.6em;
+        font-size: 1.6em;
     }
     &:active{
         opacity: 0;
@@ -163,10 +208,18 @@
         -webkit-text-fill-color: transparent;
         z-index: 1;
         @include mobileM{
-            left: 13em;
+            left: 12.5em;
+        }
+        @include mobileL{
+            left: 15.5em;
+        }
+        @include mobileXL{
+            left: 18em;
         }
         @include other{
-            left: 15em;
+            left: 18em;
+            top: 9.6em;
+            font-size: 1.6em;
         }
     }
 }

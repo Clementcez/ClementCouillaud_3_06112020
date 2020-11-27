@@ -21,6 +21,10 @@ $colorThirdly: #99E2D0;
     font-weight: bold;
     font-size: 1.4em;
     margin: 1.5em 0.8em 1em 0.8em;
+    @include other{
+        font-size: 1.6em;
+        margin: 1.5em 0.8em 1em 1.5em;
+    }
 }
 
 @mixin shadowBut {
@@ -42,6 +46,10 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
     color: white;
     background: linear-gradient($colorSecondary, $colorPrimary);
     z-index: 1;
+    @include other{
+        height: 4em;
+        border-radius: 2em;
+    }
     &:hover{
         &::after{
             opacity: 1;
@@ -59,6 +67,9 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
         z-index: -1;
         transition: opacity 300ms;
         border-radius: 1.5em;
+        @include other{
+            border-radius: 2em;
+        }
     }
     }
 }
@@ -70,15 +81,27 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
             margin: 0.5em 0 0.5em 0;
             font-size: 1.2em;
             font-weight: lighter;
+            @include other{
+                font-size: 1.4em;
+            }
         }
         & > p{
             font-size: 0.9em;
+            @include other{
+                font-size: 1.1em;
+            }
             & > i{
                 font-size: 0.8em;
                 margin-right: 0.5rem;
+                @include other{
+                    font-size: 1em;
+                }
             }
             & > .mod{
                 font-size: 0.6em;
+                @include other{
+                    font-size: 0.8em;
+                }
             }
         }
     }
@@ -92,12 +115,18 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
             left: 1.5em;
             top: 1.2em;
             width: 3em;
+            @include other{
+                font-size: 1.4em;
+            }
         }
     }
     
     .headerMenuTitle{
         position: relative;
         height: 18em;
+        @include other{
+            height: 22em;
+        }
         &__img{
             width: 100%;
             height: 100%;
@@ -115,28 +144,39 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
             }
             &__heart{
                 font-size: 1.4em;
+                height: 2em;
                 z-index: 2;
                 cursor: pointer;
                 position: absolute;
                 background: eclair($colorPrimary);
                 bottom: 0.9em;  
                 left: 12em;
+                top: 1em;
                 opacity: 1;
                 transition: opacity 250ms;
                 @include mobileM{
                     left: 14em;
                 }
-                @include other{
+                @include mobileL{
                     left: 16em;
+                }
+                @include mobileXL{
+                    left: 18em;
+                }
+                @include other{
+                    left: 19em;
+                    font-size: 1.6em;
                 }
                 &:active{
                     opacity: 0;
                 }
                 &__hover{
                     position: absolute;
+                    height: 2em;
                     font-size: 1.4em;
                     bottom: 0.9em;  
                     left: 12em;
+                    top: 1em;
                     background: -webkit-linear-gradient($colorPrimary, $colorSecondary);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
@@ -144,8 +184,15 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                     @include mobileM{
                         left: 14em;
                     }
-                    @include other{
+                    @include mobileL{
                         left: 16em;
+                    }
+                    @include mobileXL{
+                        left: 18em;
+                    }
+                    @include other{
+                        left: 19em;
+                        font-size: 1.6em;
                     }
                 }
             }
@@ -181,8 +228,14 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
         animation: onLoad 1s 800ms ease-out forwards;
         position: relative;
         overflow: hidden;
+        @include other{
+            height: 5em;
+        }
         &--modHeight{
             height: 5em;
+            @include other{
+                height: 6em;
+            }
         }
         &--delay{
             @include animDelay($m: 1);
@@ -228,6 +281,10 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
+                @include other{
+                    margin: 0.3em 0 0 0.4em;
+                    font-size: 1.3em;
+                }
             }
             &__def{
                 @include mobile{
@@ -249,9 +306,10 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
 }
 
 $breakpoints:(
-    mobileM: 375px,
-    mobile: 425px,
-    desktop: 426px,
+    mobile: 375px,
+    mobileM: 425px,
+    mobileXL: 500px,
+    desktop: 601px,
 );
 
 @mixin mobile {
@@ -261,7 +319,19 @@ $breakpoints:(
 }
 
 @mixin mobileM {
+    @media screen and(min-width: map-get($breakpoints, mobile)){
+        @content;
+    }
+}
+
+@mixin mobileL {
     @media screen and(min-width: map-get($breakpoints, mobileM)){
+        @content;
+    }
+}
+
+@mixin mobileXL {
+    @media screen and(min-width: map-get($breakpoints, mobileXL)){
         @content;
     }
 }
