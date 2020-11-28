@@ -282,7 +282,6 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
                 white-space: nowrap;
                 overflow: hidden;
                 @include other{
-                    margin: 0.3em 0 0 0.4em;
                     font-size: 1.3em;
                 }
             }
@@ -296,7 +295,7 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
             }
             &__caract{
                 @include flexCenter-Xy($justifyContent: space-between, $alignItems: center, $flexDirection: row);
-                margin: 0 1em 0 0.6em;
+                margin: 0.2em 1em 0 0.6em;
             }
             &__price{
                 font-weight: bold;

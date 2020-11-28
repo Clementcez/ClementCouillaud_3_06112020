@@ -1164,7 +1164,6 @@ footer {
 
 @media screen and (min-width: 601px) {
   .entrées__choix__content > h2 {
-    margin: 0.3em 0 0 0.4em;
     font-size: 1.3em;
   }
 }
@@ -1195,7 +1194,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 1em 0 0.6em;
+  margin: 0.2em 1em 0 0.6em;
 }
 
 .entrées__choix__content__price {
@@ -1351,7 +1350,6 @@ footer {
 
 @media screen and (min-width: 601px) {
   .plats__choix__content > h2 {
-    margin: 0.3em 0 0 0.4em;
     font-size: 1.3em;
   }
 }
@@ -1382,7 +1380,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 1em 0 0.6em;
+  margin: 0.2em 1em 0 0.6em;
 }
 
 .plats__choix__content__price {
@@ -1538,7 +1536,6 @@ footer {
 
 @media screen and (min-width: 601px) {
   .desserts__choix__content > h2 {
-    margin: 0.3em 0 0 0.4em;
     font-size: 1.3em;
   }
 }
@@ -1569,7 +1566,7 @@ footer {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 1em 0 0.6em;
+  margin: 0.2em 1em 0 0.6em;
 }
 
 .desserts__choix__content__price {
