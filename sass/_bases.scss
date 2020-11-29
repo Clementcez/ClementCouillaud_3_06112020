@@ -44,14 +44,6 @@ a {
     height: inherit;
 }
 
-button{
-    border:none;
-    background-color:transperant;
-    outline:none;
-    padding: unset;
-    font-family: inherit;
-}
-
 footer{
     @include flexCenter-Xy($justifyContent: unset, $flexDirection: unset);
     height: 11em;

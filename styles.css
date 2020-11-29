@@ -64,14 +64,6 @@ a {
   height: inherit;
 }
 
-button {
-  border: none;
-  background-color: transperant;
-  outline: none;
-  padding: unset;
-  font-family: inherit;
-}
-
 footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -109,8 +101,8 @@ footer {
   46% {
     -webkit-transform: scaleX(0.81);
             transform: scaleX(0.81);
-    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
-            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.36, 0, 1, 0.85);
+            animation-timing-function: cubic-bezier(0.36, 0, 1, 0.85);
   }
   70% {
     -webkit-transform: scaleX(1);
@@ -142,8 +134,8 @@ footer {
   46% {
     -webkit-transform: scaleX(0.81);
             transform: scaleX(0.81);
-    -webkit-animation-timing-function: cubic-bezier(0.25, 0.25, 1);
-            animation-timing-function: cubic-bezier(0.25, 0.25, 1);
+    -webkit-animation-timing-function: cubic-bezier(0.36, 0, 1, 0.85);
+            animation-timing-function: cubic-bezier(0.36, 0, 1, 0.85);
   }
   70% {
     -webkit-transform: scaleX(1);
