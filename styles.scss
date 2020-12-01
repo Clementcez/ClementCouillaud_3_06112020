@@ -203,8 +203,8 @@
         right: 0.3em;
         bottom: 0.3em;  
         left: 11em;
-        background: -webkit-linear-gradient($colorPrimary, $colorSecondary);
-        -webkit-background-clip: text;
+        background: linear-gradient($colorPrimary, $colorSecondary);
+        --background-clip: text;
         -webkit-text-fill-color: transparent;
         z-index: 1;
         @include mobileM{
