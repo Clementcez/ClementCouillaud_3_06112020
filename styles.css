@@ -1123,8 +1123,13 @@ footer {
 
 .entrées__choix__hover__checked {
   color: white;
-  overflow: hidden;
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 601px) {
+  .entrées__choix__hover__checked {
+    font-size: 1.8em;
+  }
 }
 
 .entrées__choix__content {
@@ -1309,8 +1314,13 @@ footer {
 
 .plats__choix__hover__checked {
   color: white;
-  overflow: hidden;
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 601px) {
+  .plats__choix__hover__checked {
+    font-size: 1.8em;
+  }
 }
 
 .plats__choix__content {
@@ -1495,8 +1505,13 @@ footer {
 
 .desserts__choix__hover__checked {
   color: white;
-  overflow: hidden;
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 601px) {
+  .desserts__choix__hover__checked {
+    font-size: 1.8em;
+  }
 }
 
 .desserts__choix__content {

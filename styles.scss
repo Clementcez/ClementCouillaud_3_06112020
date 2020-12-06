@@ -238,7 +238,7 @@
     padding-bottom: 4em;
 }
 
-// shadow sur body au-dela de 425px
+// shadow sur body au-dela de 600px
 .shadowBody{
     @include other{
         box-shadow: 0px 3px 20px -10px #000000;
@@ -246,15 +246,15 @@
 }
 
 .entrées{
-    @include animMenu;
+    @include menu;
 }
 
 .plats{
-    @include animMenu;
+    @include menu;
 }
 
 .desserts{
-    @include animMenu;
+    @include menu;
 }
 
 .buttonCom{

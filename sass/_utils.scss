@@ -207,7 +207,7 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
     animation: onLoad 1s $delay ease-out forwards;
 }
 
-@mixin animMenu {
+@mixin menu {
     padding: 0 0.8em 0 0.8em;
     margin-bottom: 1em;
     &__title{
@@ -267,8 +267,10 @@ $csLight: eclair($colorSecondary, $saturation: 100%, $lightness: 80%);
             position: absolute;
             &__checked{
                 color: white;
-                overflow: hidden;
                 font-size: 1.5em;
+                @include other{
+                    font-size: 1.8em;
+                }
             }
         }
         &__content{
